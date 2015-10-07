@@ -27,8 +27,7 @@ int=3
 
 curl -X POST -H "X-Parse-Application-Id: $PARSE_APP_ID" -H "X-Parse-REST-API-Key: $PARSE_REST_KEY" -H "Content-Type: application/json" \
   https://api.parse.com/1/classes/Patch \
-  -d "{
-  		\"flag\": "$flag",
+  -d "{ \"flag\": "$flag",
   		\"hash\": \""$hash"\",
   		\"file\": {\"name\": \""$file_name"\",\"__type\": \"File\"},
   		\"int\": "$int"}" 
