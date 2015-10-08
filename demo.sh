@@ -1,19 +1,35 @@
 #!/bin/bash
 
-# TODO: Ota parametrina
-# - tiedoston nimi
-# - int
-# - flag
+# Parametrit:
+# 1 flag: Boolean
+# 2 int: Integer
+# 3 path: String
 
-FILE_NAME="file.txt"
-flag=false
-int=3
+if [[ "$#" != "3" ]]; then
+ echo "#########################"
+ echo "####      USAGE      ####"
+ echo "#########################"
+ echo "PARAMETERS:"
+ echo "1) flag (true,flase)"
+ echo "2) int (Int e.g. 4)"
+ echo "3) file(e.g. file.txt)"
+ exit 1
+fi 
 
 
-FILE_CONTENT="`cat $FILE_NAME`"
+FILE_PATH="$3"
+FILE_NAME="$(basename "$FILE_PATH")"
+flag="$1"
+int="$2"
 
-hash=`openssl dgst -sha1 $FILE_NAME | sed 's/^.*= //'`
 
+script_path="$(realpath "$0")"
+script_home="$(realpath "$(dirname "$real_script_path")")"
+
+real_filepath="${script_home}/${FILE_PATH}"
+FILE_CONTENT="$(cat "$real_filepath")"
+
+hash=`openssl dgst -sha1 $real_filepath | sed 's/^.*= //'`
 
 PARSE_APP_ID=t1Hg3vjypwZsBrc5zAg1yXCfoHtkqN7brnzSm2vq
 PARSE_REST_KEY=pKuNTc0sWK5AgsgwjTdWJE8SSV2bdwgTIErv9Fx7
