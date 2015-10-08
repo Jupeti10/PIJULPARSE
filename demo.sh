@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# TODO: Ota parametrina
+# - tiedoston nimi
+# - int
+# - flag
+# Lue tiedosto
+# Laske hash?
+
+hash="yourpassword" | openssl sha1 | awk '{$2}'
+# echo $hash
+echo "Hash: $hash"
+
 PARSE_APP_ID=t1Hg3vjypwZsBrc5zAg1yXCfoHtkqN7brnzSm2vq
 PARSE_REST_KEY=pKuNTc0sWK5AgsgwjTdWJE8SSV2bdwgTIErv9Fx7
 
