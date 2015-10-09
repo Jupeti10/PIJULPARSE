@@ -23,10 +23,10 @@ flag="$1"
 int="$2"
 
 
-script_path="$(realpath "$0")"
-script_home="$(realpath "$(dirname "$real_script_path")")"
+#script_path="$(realpath "$0")"
+#script_home="$(realpath "$(dirname "$real_script_path")")"
 
-real_filepath="${script_home}/${FILE_PATH}"
+real_filepath="${FILE_PATH}"
 FILE_CONTENT="$(cat "$real_filepath")"
 
 hash=`openssl dgst -sha1 $real_filepath | sed 's/^.*= //'`
